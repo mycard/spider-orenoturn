@@ -1,0 +1,25 @@
+{
+    "name": "spider-orenoturn",
+    "version": "1.0.0",
+    "description": "a script to fetch all yu-gi-oh card images from http://orenoturn.com/ , maybe in copyright problem. USE.AT.YOUR.OWN.RISK.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mycard/spider-orenoturn.git"
+    },
+    "keywords": [
+        "orenoturn",
+        "yu-gi-oh"
+    ],
+    "author": "zh99998 <zh99998@gmail.com>",
+    "dependencies": {
+        "jsdom": "*",
+        "request": "*",
+        "iconv": "*",
+        "graceful-fs": "*"
+    },
+    "license": "GPLv3",
+    "main": "spider-orenoturn.js",
+    "engines": {
+        "node": "*"
+    }
+}
