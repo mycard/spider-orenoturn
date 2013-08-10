@@ -54,14 +54,14 @@
             }, function(error, response, body) {
               var file, wikia_image, _j, _len1;
               card_info['image'] = _.values(body.query.pages)[0].imageinfo[0].url;
-              card_info['image_basename'] = path.basename(card_info['image']);
+              card_info['image_basename'] = decodeURIComponent(path.basename(card_info['image']));
               data.push(card_info);
               file = "images_wikia/" + card_info.image_basename;
               fs.stat(file, function(error, data) {
                 if (data && data.size) {
-                  return console.log("" + card_info.title + " skipped");
+                  return console.log("[SKIPPED] " + card_info.title);
                 } else {
-                  console.log(card_info.title);
+                  console.log("[GET] " + card_info.title);
                   return request(card_info.image).pipe(fs.createWriteStream(file));
                 }
               });

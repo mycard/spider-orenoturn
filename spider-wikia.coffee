@@ -33,15 +33,15 @@ fetch = (cmcontinue='')->
                   (error, response, body)->
                     card_info['image'] = _.values(body.query.pages)[0].imageinfo[0].url
 
-                    card_info['image_basename'] = path.basename(card_info['image'])
+                    card_info['image_basename'] = decodeURIComponent path.basename card_info['image']
                     data.push card_info
 
                     file = "images_wikia/#{card_info.image_basename}"
                     fs.stat file, (error, data)->
                       if data and data.size
-                        console.log "#{card_info.title} skipped"
+                        console.log "[SKIPPED] #{card_info.title}"
                       else
-                        console.log card_info.title
+                        console.log "[GET] #{card_info.title}"
                         request(card_info.image).pipe(fs.createWriteStream(file))
 
                     pending--
