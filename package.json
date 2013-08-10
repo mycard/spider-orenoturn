@@ -15,7 +15,8 @@
         "jsdom": "*",
         "request": "*",
         "iconv": "*",
-        "graceful-fs": "*"
+        "graceful-fs": "*",
+        "underscore": "*"
     },
     "license": "GPLv3",
     "main": "spider-orenoturn.js",
